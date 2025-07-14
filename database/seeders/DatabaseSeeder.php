@@ -2,22 +2,27 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Carbon;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     */
     public function run(): void
     {
-        // User::factory(10)->create();
+        \App\Models\LeaveRule::factory(5)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        \App\Models\Employee::factory(20)->create()->each(function ($employee) {
+            // Randomly assign manager
+            $manager = \App\Models\Employee::where('employee_id', '<>', $employee->employee_id)->inRandomOrder()->first();
+            if ($manager) {
+                $employee->manager_id = $manager->employee_id;
+                $employee->save();
+            }
+        });
+
+        \App\Models\VacationRequest::factory(50)->create();
     }
+
+
 }
