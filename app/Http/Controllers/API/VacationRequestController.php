@@ -23,7 +23,7 @@ class VacationRequestController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'employee_id' => 'required|exists:employees,id',
+            'employee_id' => 'required|exists:employees,employee_id',
             'leave_type' => 'required|string',
             'title' => 'required|string',
             'status' => 'nullable|string',

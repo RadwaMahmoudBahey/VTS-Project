@@ -18,7 +18,6 @@ class Employee extends Model
         'email',
         'role_name',
         'manager_id',
-        'rule_id',
     ];
 
     public function manager()

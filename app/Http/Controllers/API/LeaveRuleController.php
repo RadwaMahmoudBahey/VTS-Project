@@ -22,7 +22,7 @@ class LeaveRuleController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'rule_name' => 'required|string',
+            'role_name' => 'required|string',
             'annual_leave' => 'required|integer',
             'sick_leave' => 'required|integer'
         ]);

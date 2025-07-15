@@ -19,14 +19,13 @@ class EmployeeController extends Controller
         return response()->json($this->employeeService->getAll());
     }
 
-    public function store(Request $request)
+    function store(Request $request)
     {
         $data = $request->validate([
             'first_name' => 'required|string',
             'last_name' => 'required|string',
             'email' => 'required|email|unique:employees,email',
-            'role' => 'nullable|string',
-            'rule_id' => 'nullable|exists:leave_rules,id',
+            'role_name' => 'required|exists:leave_rules,role_name',
             'manager_id' => 'nullable|exists:employees,id'
         ]);
         return response()->json($this->employeeService->create($data), 201);
