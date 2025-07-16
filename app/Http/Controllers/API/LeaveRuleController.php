@@ -42,6 +42,6 @@ class LeaveRuleController extends Controller
     public function destroy($id)
     {
         $this->leaveRuleService->delete($id);
-        return response()->json(null, 204);
+        return response()->json(['message' => "Deletion of Leave Rule with id {$id} was successful."], 200);
     }
 }

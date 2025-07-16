@@ -18,7 +18,7 @@ return new class extends Migration
             $table->date('request_date');
             $table->date('start_date');
             $table->date('end_date');
-            $table->float('vacation_duration', 8, 2);
+            $table->decimal('vacation_duration',  8, 2)->nullable();
             $table->text('description')->nullable();
             $table->enum('leave_type', ['annual', 'sick']);
             $table->unsignedBigInteger('employee_id');

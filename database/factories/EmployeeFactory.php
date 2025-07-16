@@ -8,7 +8,7 @@ use App\Models\Employee;
 
 class EmployeeFactory extends Factory
 {
-    protected $model = \App\Models\Employee::class;
+    protected $model = Employee::class;
 
     public function definition(): array
     {

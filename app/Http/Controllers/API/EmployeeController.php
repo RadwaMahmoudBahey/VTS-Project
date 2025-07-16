@@ -45,7 +45,7 @@ class EmployeeController extends Controller
     public function destroy($id)
     {
         $this->employeeService->delete($id);
-        return response()->json(null, 204);
+        return response()->json(['message' => "Deletion of Employee with id {$id} was successful."], 200);
     }
 }
 

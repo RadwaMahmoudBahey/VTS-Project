@@ -31,6 +31,7 @@ class VacationRequestController extends Controller
             'start_date' => 'required|date',
             'end_date' => 'required|date|after_or_equal:start_date',
             'description' => 'nullable|string',
+            'vacation_duration' => 'nullable|numeric'
         ]);
         return response()->json($this->vacationRequestService->create($data), 201);
     }
@@ -48,6 +49,11 @@ class VacationRequestController extends Controller
     public function destroy($id)
     {
         $this->vacationRequestService->delete($id);
-        return response()->json(null, 204);
+        return response()->json(['message' => "Deletion of Vacation Request with id {$id} was successful."], 200);
+    }
+
+    public function GetallVacations($id)
+    {
+        return $this->vacationRequestService->getAllByEmployeeId($id);
     }
 }
