@@ -3,6 +3,7 @@ namespace App\Services;
 
 use App\Models\VacationRequest;
 use App\Models\Employee;
+use Carbon\Carbon;
 class VacationRequestService
 {
     public function getAll()
@@ -39,5 +40,11 @@ class VacationRequestService
             'employee' => $employee->only(['employee_id', 'first_name', 'last_name']),
             'vacation_requests' => $vacations
         ]);
+    }
+    public function GetDuration($data)
+    {
+        $start = Carbon::parse($data->start_date); // now it's a Carbon instance
+        $end = Carbon::parse($data->end_date);
+        return ($start->diffInDays($end) + 1); // +1 to include the end date
     }
 }

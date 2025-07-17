@@ -101,15 +101,14 @@ Content-Type: application/json
 Accept: application/json
 
 {
-    "employee_id": 6,
+    "employee_id": 4,
     "leave_type": "annual",
-    "title": "Summer Vacation",
+    "title": "Winter Vacation",
     "status": "pending",
     "request_date": "2023-06-01",
-    "vacation_duration": 15.0,
-    "start_date": "2023-07-15",
-    "end_date": "2023-07-30",
-    "description": "Annual summer vacation with family"
+    "start_date": "2025-09-15",
+    "end_date": "2025-10-21",
+    "description": "Annual winter vacation with family"
 }
 
 HTTP/1.1 201  - Created
@@ -117,7 +116,7 @@ host: localhost:8000
 connection: close
 x-powered-by: PHP/8.2.12
 cache-control: no-cache, private
-date: Wed, 16 Jul 2025 14:39:18 GMT
+date: Thu, 17 Jul 2025 00:52:38 GMT
 content-type: application/json
 access-control-allow-origin: *
 ###
@@ -171,7 +170,6 @@ host: localhost:8000
 connection: close
 x-powered-by: PHP/8.2.12
 cache-control: no-cache, private
-date: Wed, 16 Jul 2025 14:53:31 GMT
+date: Wed, 16 Jul 2025 15:18:23 GMT
 content-type: application/json
 access-control-allow-origin: *
-###

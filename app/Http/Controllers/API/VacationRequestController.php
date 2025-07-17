@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\VacationRequest;
 use Illuminate\Http\Request;
 use App\Services\VacationRequestService;
-
 class VacationRequestController extends Controller
 {
     protected $vacationRequestService;
@@ -30,9 +30,9 @@ class VacationRequestController extends Controller
             'request_date' => 'required|date',
             'start_date' => 'required|date',
             'end_date' => 'required|date|after_or_equal:start_date',
-            'description' => 'nullable|string',
-            'vacation_duration' => 'nullable|numeric'
+            'description' => 'nullable|string'
         ]);
+        $data['vacation_duration'] = $this->vacationRequestService->GetDuration((object)$data);
         return response()->json($this->vacationRequestService->create($data), 201);
     }
 
@@ -56,4 +56,5 @@ class VacationRequestController extends Controller
     {
         return $this->vacationRequestService->getAllByEmployeeId($id);
     }
+    
 }
