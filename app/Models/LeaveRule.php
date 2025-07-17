@@ -15,6 +15,7 @@ class LeaveRule extends Model
         'role_name',
         'annual_leave',
         'sick_leave',
+        'half_day_leave',
     ];
 
     public function employees()

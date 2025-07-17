@@ -14,7 +14,7 @@ class VacationRequestFactory extends Factory
     {
         $startDate = $this->faker->dateTimeBetween('+1 days', '+1 month');
         $endDate = (clone $startDate)->modify('+'.rand(1,5).' days');
-
+        $leaveType = $this->faker->randomElement(['annual', 'sick', 'half-day']);
         return [
             'title' => $this->faker->sentence(3),
             'status' => $this->faker->randomElement(['pending', 'approved', 'rejected']),
@@ -23,7 +23,8 @@ class VacationRequestFactory extends Factory
             'end_date' => $endDate,
             'vacation_duration' => $startDate->diff($endDate)->days + 1,
             'description' => $this->faker->optional()->paragraph,
-            'leave_type' => $this->faker->randomElement(['annual', 'sick']),
+            'leave_type' => $leaveType,
+            'half_day_leave' => $leaveType === 'half-day'? $this->faker->randomElement(['First Half', 'Second Half']): 'No',
             'employee_id' => Employee::inRandomOrder()->first()->employee_id ?? Employee::factory(),
         ];
     }

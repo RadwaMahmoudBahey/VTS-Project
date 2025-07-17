@@ -20,6 +20,7 @@ class VacationRequest extends Model
         'vacation_duration',
         'description',
         'leave_type',
+        'half_day_leave',
         'employee_id',
     ];
 

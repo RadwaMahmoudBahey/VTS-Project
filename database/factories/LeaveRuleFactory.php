@@ -18,6 +18,7 @@ class LeaveRuleFactory extends Factory
             'role_name' => $this->faker->unique()->jobTitle,
             'annual_leave' => $this->faker->numberBetween(10, 30),
             'sick_leave' => $this->faker->numberBetween(5, 15),
+            'half_day_leave' => $this->faker->numberBetween(0, 10),
         ];
     }
 }

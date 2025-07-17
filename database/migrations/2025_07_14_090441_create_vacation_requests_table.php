@@ -20,7 +20,8 @@ return new class extends Migration
             $table->date('end_date');
             $table->decimal('vacation_duration',  8, 2)->nullable();
             $table->text('description')->nullable();
-            $table->enum('leave_type', ['annual', 'sick']);
+            $table->enum('leave_type', ['annual', 'sick' , 'half-day']);
+            $table->enum('half_day_leave', ['No', 'First Half', 'Second Half'])->default('No');
             $table->unsignedBigInteger('employee_id');
             $table->timestamps();
 

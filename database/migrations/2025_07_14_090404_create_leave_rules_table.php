@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('role_name')->unique();
             $table->unsignedInteger('annual_leave');
             $table->unsignedInteger('sick_leave');
+            $table->unsignedInteger('half_day_leave');
             $table->timestamps();
         });
 
